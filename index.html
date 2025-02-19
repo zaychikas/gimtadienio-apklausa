@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="lt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +9,11 @@
         /* Nustatome puslapio foną */
         body {
             background-image: url('birthday.jpg');
-            background-size: cover; /* Užtikrina, kad fonas užims visą ekraną */
-            background-position: center; /* Fonas bus centruotas */
-            color: white; /* Kad tekstas būtų matomas ant foną */
-            font-family: Arial, sans-serif; /* Nustatome šriftą */
-            text-align: center; /* Centrojame tekstą */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
             padding: 0;
             margin: 0;
         }
@@ -53,11 +52,6 @@
             display: none;
             margin-top: 30px;
         }
-
-        /* Paslėpti formą ir rodyti YouTube vaizdo įrašą */
-        #audio-container {
-            display: block;
-        }
     </style>
 </head>
 
@@ -65,8 +59,8 @@
 
     <!-- Muzika, kuri pradeda groti nuo 0:38 (naudojant mp3 failą iš Google Drive) -->
     <div id="audio-container">
-        <audio autoplay>
-            <source src="https://drive.google.com/file/d/1X1TXK3s4wgM0b1zOjm7OY9z5mOYx_b2C/view?usp=sharing" type="audio/mpeg">
+        <audio id="audio-player" autoplay>
+            <source src="https://drive.google.com/uc?export=download&id=1X1TXK3s4wgM0b1zOjm7OY9z5mOYx_b2C" type="audio/mpeg">
         </audio>
     </div>
 
@@ -86,7 +80,7 @@
 
     <!-- Thank you Image that shows up after selection -->
     <div id="thank-you-container">
-        <img src="thank-you.jpg" alt="Ačiū!" width="300">
+        <img src="thank-you.png" alt="Ačiū!" width="300">
         <h2>Ačiū už atsakymą!</h2>
     </div>
 
@@ -103,9 +97,16 @@
             // Paslėpti formą
             document.getElementById('gift-form').style.display = 'none';
 
-            // Rodyti "Ačiū" paveikslėlį
+            // Rodyti "Ačiū" paveikslą
             document.getElementById('thank-you-container').style.display = 'block';
         }
+
+        // Funkcija, kuri pradeda groti muzika nuo 0:38
+        window.onload = function () {
+            var audioPlayer = document.getElementById('audio-player');
+            audioPlayer.currentTime = 38; // Pradedame groti nuo 38 sekundės
+            audioPlayer.play(); // Paleidžiame muziką
+        };
     </script>
 
 </body>
