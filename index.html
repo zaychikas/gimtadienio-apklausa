@@ -1,82 +1,31 @@
 <!DOCTYPE html>
 <html lang="lt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Su gimtadieniu!</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            /* Paveikslėlio fono nustatymas */
-            background-image: url('birthday.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        /* Tiksliau susiaurinta Spotify iframe */
-        iframe {
-            border-radius: 12px;
-            width: 300px; /* Mažesnis dydis */
-            height: 80px; /* Mažesnis aukštis */
-            margin: 20px auto;
-            display: block;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-top: 50px;
-        }
-
-        .container {
-            margin-top: 100px;
-        }
-
-        label {
-            display: block;
-            font-size: 1.2rem;
-            margin: 10px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            font-size: 1.5rem;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
 </head>
-
 <body>
-    <!-- Spotify Embed (automatiškai pradeda groti) -->
-    <iframe 
-        src="https://open.spotify.com/embed/track/2xLOMHjkOK8nzxJ4r6yOKR?utm_source=generator&autoplay=true&start=43" 
-        frameborder="0" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
+    <h1>Ko nori gimtadieniui labiausiai?</h1>
+    <form id="gift-form">
+        <label><input type="radio" name="gift" value="Plaukams priemonių (rinkinys)"> Plaukams priemonių (rinkinys)</label>
+        <label><input type="radio" name="gift" value="Konkrečios priemonės plaukams pagal savo nuožiūrą"> Konkrečios priemonės plaukams</label>
+        <label><input type="radio" name="gift" value="Sexy apatiniai"> Sexy apatiniai</label>
+        <label><input type="radio" name="gift" value="Knygos (asmeninio tobulėjimo)"> Knygos</label>
+        <label><input type="radio" name="gift" value="Dovanų čekis Ryo"> Dovanų čekis Ryo</label>
+        <label><input type="radio" name="gift" value="Dovanų čekis Molas"> Dovanų čekis Molas</label>
+        
+        <button type="button" onclick="submitForm()">Pateikti</button>
+    </form>
 
-    <div class="container">
-        <h1>Ko nori gimtadieniui labiausiai?</h1>
-        <form id="gift-form">
-            <label><input type="radio" name="gift" value="Plaukams priemonių (rinkinys)"> Plaukams priemonių (rinkinys)</label>
-            <label><input type="radio" name="gift" value="Konkrečios priemonės plaukams pagal savo nuožiūrą"> Konkrečios priemonės plaukams</label>
-            <label><input type="radio" name="gift" value="Sexy apatiniai"> Sexy apatiniai</label>
-            <label><input type="radio" name="gift" value="Knygos (asmeninio tobulėjimo)"> Knygos</label>
-            <label><input type="radio" name="gift" value="Dovanų čekis Ryo"> Dovanų čekis Ryo</label>
-            <label><input type="radio" name="gift" value="Dovanų čekis Molas"> Dovanų čekis Molas</label>
-            <button type="button" onclick="submitForm()">Pateikti</button>
-        </form>
+    <div id="youtube-video-container" style="display:none;">
+        <iframe id="youtube-video" width="560" height="315" 
+                src="https://www.youtube.com/watch?v=jqYxyd1iSNk?autoplay=1&start=38" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
     </div>
 
     <script>
@@ -88,19 +37,12 @@
                 return;
             }
 
-            document.body.innerHTML = `
-                <audio autoplay>
-                    <source src="i’m_so_happy_thank_you_sound_effect.mp3" type="audio/mpeg">
-                </audio>
-                <div class="thank-you">
-                    <h1>Ačiū!</h1>
-                    <img src="thank-you.png" alt="Katinas dėkoja">
-                </div>
-            `;
-            
-            document.body.style.backgroundImage = "url('birthday.jpg')";
+            // Paslėpti formą
+            document.getElementById('gift-form').style.display = 'none';
+
+            // Rodyti YouTube vaizdo įrašą
+            document.getElementById('youtube-video-container').style.display = 'block';
         }
     </script>
 </body>
-
 </html>
