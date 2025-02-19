@@ -1,23 +1,69 @@
 <!DOCTYPE html>
 <html lang="lt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Su gimtadieniu!</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <style>
+        body {
+            /* Paveikslėlio fono nustatymas */
+            background-image: url('birthday.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-    <!-- Spotify Embed (pradeda groti nuo 43 sekundės) -->
+        /* Tiksliau susiaurinta Spotify iframe */
+        iframe {
+            border-radius: 12px;
+            width: 300px; /* Mažesnis dydis */
+            height: 80px; /* Mažesnis aukštis */
+            margin: 20px auto;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 50px;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.2rem;
+            margin: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spotify Embed (automatiškai pradeda groti) -->
     <iframe 
-        style="border-radius:12px" 
         src="https://open.spotify.com/embed/track/2xLOMHjkOK8nzxJ4r6yOKR?utm_source=generator&autoplay=true&start=43" 
-        width="100%" 
-        height="352" 
         frameborder="0" 
-        allowfullscreen 
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-        loading="lazy">
+        allowfullscreen>
     </iframe>
 
     <div class="container">
@@ -33,6 +79,28 @@
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function submitForm() {
+            let selectedOption = document.querySelector('input[name="gift"]:checked');
+            
+            if (!selectedOption) {
+                alert("Pasirink vieną variantą!");
+                return;
+            }
+
+            document.body.innerHTML = `
+                <audio autoplay>
+                    <source src="i’m_so_happy_thank_you_sound_effect.mp3" type="audio/mpeg">
+                </audio>
+                <div class="thank-you">
+                    <h1>Ačiū!</h1>
+                    <img src="thank-you.png" alt="Katinas dėkoja">
+                </div>
+            `;
+            
+            document.body.style.backgroundImage = "url('birthday.jpg')";
+        }
+    </script>
 </body>
+
 </html>
