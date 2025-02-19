@@ -1,0 +1,31 @@
+function submitForm() {
+    let selectedOption = document.querySelector('input[name="gift"]:checked');
+    
+    if (!selectedOption) {
+        alert("Pasirink vieną variantą!");
+        return;
+    }
+
+    // Pašaliname visą turinį ir rodome dėkojimo žinutę su Spotify
+    document.body.innerHTML = `
+        <!-- Spotify embed -->
+        <iframe style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/1EP1y0LtrPuSQMGv370y12?utm_source=generator&start=43" 
+            width="100%" 
+            height="352" 
+            frameborder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+        </iframe>
+        
+
+        <div class="thank-you">
+            <h1>Ačiū!</h1>
+            <img src="thank-you.png" alt="AČIŪ">
+        </div>
+    `;
+    
+    // Nustatome fono nuotrauką
+    document.body.style.backgroundImage = "url('birthday.jpg')";
+}
