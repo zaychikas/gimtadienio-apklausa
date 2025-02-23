@@ -1,53 +1,48 @@
+/* Bendri nustatymai */
 body {
-    background-image: url(‘birthday.jpg');
+    margin: 0;
+    padding: 0;
+    background-image: url('birthday.jpg');
     background-size: cover;
-    text-align: center;
+    background-position: center;
     font-family: Arial, sans-serif;
     color: white;
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-    display: inline-block;
-    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.screen {
+    display: none;
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 2.5rem;
+    margin: 20px;
 }
 
-form {
-    margin-top: 20px;
-}
-
-label {
-    display: block;
-    margin: 10px 0;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
+.btn {
+    padding: 15px 30px;
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.thank-you {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+.btn:hover {
+    background-color: darkgreen;
 }
 
-.thank-you h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.thank-you img {
-    width: 200px;
-    height: auto;
+/* Kai puslapis pasirodo */
+#screen1 {
+    display: block;
 }
