@@ -6,14 +6,25 @@
     <title>Daina</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-image: url('birthday.jpg'); background-size: cover; background-position: center; text-align: center;">
+
     <div class="container">
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/oP0eoGTxTbk?autoplay=1&start=38"
-            title="YouTube video player"
-            frameborder="0" allow="autoplay; encrypted-media" 
-            allowfullscreen>
-        </iframe>
+        <h1 style="color: white;">Šis vaizdo įrašas skirtas tau!</h1>
+
+        <video id="myVideo" width="80%" controls autoplay>
+            <source src="video.mp4" type="video/mp4">
+            Jūsų naršyklė nepalaiko šio vaizdo įrašo formato.
+        </video>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let video = document.getElementById("myVideo");
+            video.onloadedmetadata = function() {
+                video.currentTime = 35;  // Pradeda nuo 35 sekundės
+            };
+        });
+    </script>
+
 </body>
 </html>
