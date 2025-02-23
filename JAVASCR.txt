@@ -1,17 +1,17 @@
-function submitForm() {
-    let selectedOption = document.querySelector('input[name="gift"]:checked');
-    
-    if (!selectedOption) {
-        alert("Pasirink vieną variantą!");
-        return;
-    }
+// Pirmas mygtukas
+document.getElementById("next1").addEventListener("click", function () {
+    document.getElementById("screen1").style.display = "none";
+    document.getElementById("screen2").style.display = "block";
+});
 
-    // Slėpti klausimą
-    document.getElementById("question").style.display = "none";
+// Antras mygtukas
+document.getElementById("next2").addEventListener("click", function () {
+    document.getElementById("screen2").style.display = "none";
+    document.getElementById("screen3").style.display = "block";
+});
 
-    // Paslėpti formą
-    document.getElementById("gift-form").style.display = "none";
-
-    // Parodyti "Ačiū!" ir paveikslėlį
-    document.getElementById("thank-you-message").style.display = "block";
-}
+// Trečias mygtukas
+document.getElementById("next3").addEventListener("click", function () {
+    document.getElementById("screen3").style.display = "none";
+    document.getElementById("screen4").style.display = "block";
+});
