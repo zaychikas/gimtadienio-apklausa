@@ -18,16 +18,19 @@
         }
 
         iframe {
-            width: 80%;
-            height: 70%;
+            width: 90%; /* Užims 90% ekrano pločio */
+            height: 80vh; /* Užims 80% ekrano aukščio */
+            max-width: 1200px; /* Maksimalus video plotis 1200px */
+            max-height: 800px; /* Maksimalus video aukštis 800px */
         }
     </style>
 </head>
 <body>
     <div class="video-container">
-        <iframe id="video" src="https://player.vimeo.com/video/1059462592?autoplay=1&start=35" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="video" src="https://player.vimeo.com/video/1059462592?autoplay=1&start=35&muted=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
 
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
         var iframe = document.getElementById('video');
         var player = new Vimeo.Player(iframe);
@@ -38,8 +41,13 @@
         }).catch(function(error) {
             console.log('Klaida nustatant pradžios laiką: ' + error);
         });
+        
+        // Užtikriname, kad garsas būtų įjungtas
+        player.setVolume(1).then(function(volume) {
+            console.log('Garso lygis: ' + volume);
+        }).catch(function(error) {
+            console.log('Klaida nustatant garsą: ' + error);
+        });
     </script>
-
-    <script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
