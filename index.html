@@ -5,110 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Su gimtadieniu!</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Nustatome puslapio foną */
-        body {
-            background-image: url('birthday.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 0;
-            margin: 0;
-        }
-
-        .container {
-            margin-top: 50px;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        /* Paslėpti formą ir rodyti Thank you paveikslą tik po pasirinkimo */
-        #thank-you-container {
-            display: none;
-            margin-top: 30px;
-        }
-    </style>
 </head>
-
 <body>
+    <audio autoplay>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Muzika, kuri pradeda groti nuo 0:38 (naudojant mp3 failą iš Google Drive) -->
-    <div id="audio-container">
-        <audio id="audio-player" autoplay>
-            <source src="https://drive.google.com/uc?export=download&id=1X1TXK3s4wgM0b1zOjm7OY9z5mOYx_b2C" type="audio/mpeg">
-        </audio>
+    <!-- Fonas su nuotrauka -->
+    <div class="background-image">
+        <img src="birthday.jpg" alt="Birthday" class="background-img">
     </div>
 
     <div class="container">
-        <h1>Ko nori gimtadieniui labiausiai?</h1>
+        <h1 id="question">Ko nori gimtadieniui labiausiai?</h1>
         <form id="gift-form">
-            <label><input type="radio" name="gift" value="Plaukams priemonių (rinkinys)"> Plaukams priemonių (rinkinys)</label>
-            <label><input type="radio" name="gift" value="Konkrečios priemonės plaukams pagal savo nuožiūrą"> Konkrečios priemonės plaukams</label>
-            <label><input type="radio" name="gift" value="Sexy apatiniai"> Sexy apatiniai</label>
-            <label><input type="radio" name="gift" value="Knygos (asmeninio tobulėjimo)"> Knygos</label>
-            <label><input type="radio" name="gift" value="Dovanų čekis Ryo"> Dovanų čekis Ryo</label>
-            <label><input type="radio" name="gift" value="Dovanų čekis Molas"> Dovanų čekis Molas</label>
-
+            <label><input type="radio" name="gift" value="Plaukams priemonių (rinkinys)"> Plaukams priemonių (rinkinys)</label><br>
+            <label><input type="radio" name="gift" value="Konkrečios priemonės plaukams pagal savo nuožiūrą"> Konkrečios priemonės plaukams</label><br>
+            <label><input type="radio" name="gift" value="Sexy apatiniai"> Sexy apatiniai</label><br>
+            <label><input type="radio" name="gift" value="Knygos (asmeninio tobulėjimo)"> Knygos</label><br>
+            <label><input type="radio" name="gift" value="Dovanų čekis Ryo"> Dovanų čekis Ryo</label><br>
+            <label><input type="radio" name="gift" value="Dovanų čekis Molas"> Dovanų čekis Molas</label><br>
             <button type="button" onclick="submitForm()">Pateikti</button>
         </form>
+        <!-- Pranešimas po pasirinkimo -->
+        <div id="thank-you-message" style="display:none;">
+            <h1>Ačiū!</h1>
+            <img src="thank-you.png" alt="Thank You">
+        </div>
     </div>
 
-    <!-- Thank you Image that shows up after selection -->
-    <div id="thank-you-container">
-        <img src="thank-you.png" alt="Ačiū!" width="300">
-        <h2>Ačiū už atsakymą!</h2>
-    </div>
-
-    <script>
-        // Funkcija, kuri įvyksta, kai paspaudžiamas mygtukas
-        function submitForm() {
-            let selectedOption = document.querySelector('input[name="gift"]:checked');
-            
-            if (!selectedOption) {
-                alert("Pasirink vieną variantą!");
-                return;
-            }
-
-            // Paslėpti formą
-            document.getElementById('gift-form').style.display = 'none';
-
-            // Rodyti "Ačiū" paveikslą
-            document.getElementById('thank-you-container').style.display = 'block';
-        }
-
-        // Funkcija, kuri pradeda groti muzika nuo 0:38
-        window.onload = function () {
-            var audioPlayer = document.getElementById('audio-player');
-            audioPlayer.currentTime = 38; // Pradedame groti nuo 38 sekundės
-            audioPlayer.play(); // Paleidžiame muziką
-        };
-    </script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
