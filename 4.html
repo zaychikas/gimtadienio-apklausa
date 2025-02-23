@@ -4,25 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daina</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Pridedame stilius, kad video užimtų didesnę dalį puslapio */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('birthday.jpg'); /* Fonas, kurį įkėlėte */
+            background-size: cover; /* Fonas užims visą ekraną */
+            background-position: center; /* Fonas bus išcentrintas */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Užims visą puslapio aukštį */
+            color: white; /* Tekstas bus baltas, kad gerai matytųsi ant tamsaus fono */
+        }
+
+        /* Vimeo video stiliai */
+        .video-container {
+            width: 80%; /* Video užims 80% ekrano pločio */
+            max-width: 960px; /* Maksimalus plotis 960px */
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px; /* Apvalūs kampai */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Šešėlis aplink video */
+        }
+    </style>
 </head>
-<body style="background-image: url('birthday.jpg'); background-size: cover; background-position: center; text-align: center;">
-
-    <div class="container">
-
-        <video id="myVideo" width="90%" controls autoplay>
-            <source src="video.mp4" type="video/mp4">
-        </video>
+<body>
+    <div class="video-container">
+        <!-- Vimeo video embed -->
+        <iframe 
+            src="https://player.vimeo.com/video/1059462592?autoplay=1&start=35" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+            allowfullscreen 
+            title="Vytautas Šiškauskas _Su gimtadieniu_">
+        </iframe>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let video = document.getElementById("myVideo");
-            video.onloadedmetadata = function() {
-                video.currentTime = 35;  // Pradeda nuo 35 sekundės
-            };
-        });
-    </script>
-
 </body>
 </html>
